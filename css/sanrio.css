@@ -1,0 +1,283 @@
+/* hide h1 */
+main > h1 {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+/* eerste kopje */
+main>section:nth-of-type(1) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+
+main>section>img {
+    width: 100%;
+}
+
+main>section>div>h2 {
+    color: var(--text-color);
+    font-size: 1em;
+    letter-spacing: 0.0625em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    z-index: 100;
+}
+
+main>section>div>h3 {
+    color: var(--text-color);
+    font-size: 2.19em;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+main>section>div>p {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 1.25em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    height: 9em;
+    z-index: 100;
+}
+
+main>section>div>a {
+    color: var(--textblack-color);
+    text-decoration: none;
+    line-height: 3.5em;
+    border: 0.13em solid var(--border-color);
+    display: block;
+    width: 100%;
+    background-color: var(--button-bg-color);
+    font-family: 'Fredoka One', cursive;
+    z-index: 100;
+}
+
+main > section > div > a:hover {
+    background-color: var(--hvrbutton-bg-color);
+    color: var(--hvrbutton-text-color);
+}
+
+
+
+
+
+/* alle h2 van de ads */
+main>section>h2 {
+    color: var(--text-color);
+    font-size: 1em;
+    letter-spacing: 0.0625em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+/* alle h3 van de ads */
+main>section>h3 {
+    color: var(--text-color);
+    font-size: 2.19em;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+/* alle p van de ads */
+main>section>p {
+    color: var(--text-color);
+    height: 8.8em;
+    text-align: center;
+    font-size: 1.25em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+/* alle linkjes van de ads */
+main>section>a {
+    text-decoration: none;
+    color: var(--textblack-color);
+    line-height: 3.5em;
+    border: 0.13em solid var(--border-color);
+    display: block;
+    margin-bottom: 14%;
+    width: 100%;
+    background-color: var(--button-bg-color);
+    font-family: 'Fredoka One', cursive;
+}
+
+/* knoppen worden zwart wanneer hover */
+main>section>a:hover {
+    background-color: var(--hvrbutton-bg-color);
+    color: var(--hvrbutton-text-color);
+}
+
+
+
+
+
+/* unorderd lijst in de main (er zit geen bepaalde volgorde in) */
+main>ul {
+    display: grid;
+    text-align: center;
+    grid-gap: 1rem;
+    list-style: none;
+    margin-left: -2.3125em;
+}
+
+/* lijst in ul */
+main>ul>li {
+    background-color: var(--link-bg-color);
+    border-radius: 1000em;
+
+}
+
+/* linkjes in de lijstjes */
+main>ul>li>a {
+    padding: 0.5em;
+    display: block;
+    text-decoration: none;
+    color: var(--linkclr-color);
+    font-size: .9em;
+    font-family: 'Roboto', sans-serif;
+}
+
+    
+
+
+
+
+  /* responsive */
+
+  @media (min-width: 25em) {
+
+      main {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          text-align: center;
+          grid-gap: 1rem;
+      }
+/* object-fit wordt gebruikt om aan te geven hoe de img moet worden aangepast om in de container te passen dit dit word het blijft de zelfde hoogte en breedt die ik aan heb gegeven. */
+      main>section>img {
+          width: 100%;
+          height: 67vw;
+          object-fit: cover;
+      }
+
+      main>ul {
+          list-style: none;
+          margin-left: -2.3125em;
+          /* negeert nu de oude display: flex */
+          display: contents;
+      }
+
+  }
+
+
+
+
+  
+/* responsive */
+
+@media (min-width: 50em) {
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 81vh auto;
+        text-align: center;
+        grid-gap: 1rem;
+    }
+
+    main>section:nth-of-type(1) {
+        grid-area: 1 / 1 / 2 / -1;
+        position: relative;
+    }
+
+    main>section:nth-of-type(1) img {
+        content: url("../img/800header.png");
+        height: 100%;
+    }
+
+    main>section:nth-of-type(1) div {
+        position: absolute;
+        width: 46%;
+        left: 35%;
+        height: 108%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main>ul {
+        display: none;
+
+    }
+
+    main>section:nth-of-type(n+2) img {
+        height: 73vh;
+    }
+
+
+    main>section:nth-of-type(1) h2 {
+
+        text-align: center;
+
+    }
+
+    main>section:nth-of-type(1) h3 {
+
+        text-align: center;
+    }
+
+    main>section:nth-of-type(1) p {
+
+        text-align: center;
+    }
+
+    /* selecteer vanaf de 2de section alles */
+    /* display none wordt niet gezien en leesbaar */
+    main>section:nth-of-type(n+2) p {
+        display: none;
+    }
+
+    main>section:nth-of-type(1) button {
+        bottom: 3em;
+        left: 30em;
+        width: 14em;
+    }
+}
+
